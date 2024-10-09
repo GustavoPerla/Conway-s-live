@@ -1,6 +1,6 @@
 #include "constants.h"
 
-int cuentaVecinos(int** matriz, int i, int j){
+int cuentaVecinos(int8_t** matriz, int i, int j){
     int f, c, cont = 0;
     for (f = i - 1; f <= i + 1; f++)
         for (c = j - 1; c <= j + 1; c++)
@@ -12,7 +12,7 @@ int cuentaVecinos(int** matriz, int i, int j){
     return cont;
 }
 
-void calculaSiguiente(int** matriz){
+void calculaSiguiente(int8_t** matriz){
     int i, j;
     for (i = 0; i < WIDTH; i++)
         for (j = 0; j < HEIGHT; j++) {
@@ -25,7 +25,7 @@ void calculaSiguiente(int** matriz){
     return;
 }
 
-void aplicaSiguiente(int** matriz){
+void aplicaSiguiente(int8_t** matriz){
     int i, j;
     for (i = 0; i < WIDTH; i++)
         for (j = 0; j < HEIGHT; j++) {

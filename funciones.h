@@ -2,10 +2,10 @@
 #define FUNCIONES_H_INCLUDED
 #include "constants.h"
 
-int cuentaVecinos(int** matriz, int i, int j);
+int cuentaVecinos(int8_t** matriz, int i, int j);
 
-void calculaSiguiente(int** matriz);
+void calculaSiguiente(int8_t** matriz);
 
-void aplicaSiguiente(int** matriz);
+void aplicaSiguiente(int8_t** matriz);
 
 #endif // FUNCIONES_H_INCLUDED

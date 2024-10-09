@@ -1,6 +1,6 @@
 #include "precargas.h"
 
-void cargarOscilador(int** matriz, int i, int j) {
+void cargarOscilador(int8_t** matriz, int i, int j) {
 
     matriz[i-1][j-3] = 1;
     matriz[i][j-3] = 1;
@@ -20,7 +20,7 @@ void cargarOscilador(int** matriz, int i, int j) {
     return;
 }
 
-void cargarOscilador2(int** matriz, int i, int j) {
+void cargarOscilador2(int8_t** matriz, int i, int j) {
 
     matriz[j-4][i-4] = 1;
     matriz[j-4][i-3] = 1;
@@ -80,7 +80,7 @@ void cargarOscilador2(int** matriz, int i, int j) {
     return;
 }
 
-void cargarShip(int** matriz, int i, int j){
+void cargarShip(int8_t** matriz, int i, int j){
     matriz[i][j+1] = 1;
     matriz[i+1][j+2] = 1;
     matriz[i+2][j] = 1;
@@ -88,7 +88,7 @@ void cargarShip(int** matriz, int i, int j){
     matriz[i+2][j+2] = 1;
 }
 
-void cargarGenShip(int** matriz, int j, int i){
+void cargarGenShip(int8_t** matriz, int j, int i){
     matriz[i][j+4] = 1;
     matriz[i+1][j+4] = 1;
     matriz[i][j+5] = 1;

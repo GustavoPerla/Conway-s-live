@@ -3,6 +3,7 @@
 #include "funciones.h"
 #include "matriz.h"
 #include <stdbool.h>
+#include <stdint.h>
 
 void drawFilledCircle(SDL_Renderer* renderer, int cx, int cy, int radius) {
     for (int y = -radius; y <= radius; y++)
@@ -13,7 +14,7 @@ void drawFilledCircle(SDL_Renderer* renderer, int cx, int cy, int radius) {
 
 int main(int argc, char *argv[]) {
     bool done=1;
-    int** MCelulas = crearMat(WIDTH,HEIGHT);
+    int8_t** MCelulas = crearMat(WIDTH,HEIGHT);
     if(!MCelulas)
         return SIN_MEMO;
     cargarCeros(MCelulas,WIDTH,HEIGHT);
