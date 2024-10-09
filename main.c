@@ -46,6 +46,8 @@ int main(int argc, char *argv[]) {
     cargarOscilador2(MCelulas, 40, 35);
     cargarOscilador2(MCelulas, 40, 50);
     cargarOscilador2(MCelulas, 40, 65);
+    cargarOscilador2(MCelulas, 80, 80);
+    cargarOscilador2(MCelulas, 100, 100);
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         printf("SDL No se ha podido inicializar! SDL_Error: %s\n", SDL_GetError());
@@ -55,8 +57,8 @@ int main(int argc, char *argv[]) {
     window = SDL_CreateWindow("Juego de la vida",
                                                 SDL_WINDOWPOS_UNDEFINED,
                                                 SDL_WINDOWPOS_UNDEFINED,
-                                                fila*10,
-                                                col*10,
+                                                TAM_PANTALLA_H,
+                                                TAM_PANTALLA_V,
                                                 SDL_WINDOW_SHOWN);
     if (!window){
         SDL_Log("Error en la creacion de la ventana: %s\n", SDL_GetError());
@@ -83,12 +85,12 @@ int main(int argc, char *argv[]) {
 
         for(i = 0; i<fila; i++)
             for(j = 0; j<col; j++)
-                if(MCelulas[i][j]==1) {
+                if(MCelulas[i][j]==VIVO) {
 
-                    fillRect.x = (i*10);
-                    fillRect.y = (j*10);
-                    fillRect.h = 10;
-                    fillRect.w = 10;
+                    fillRect.x = (i*TAM_CUADROS);
+                    fillRect.y = (j*TAM_CUADROS);
+                    fillRect.h = TAM_CUADROS;
+                    fillRect.w = TAM_CUADROS;
 
                     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
                     SDL_RenderFillRect(renderer, &fillRect);
@@ -104,8 +106,8 @@ int main(int argc, char *argv[]) {
         if(skip<k)
             SDL_Delay(delay);
 
-        calculaSiguiente(MCelulas);
-        aplicaSiguiente(MCelulas);
+        calculaSiguiente(MCelulas,fila,col);
+        aplicaSiguiente(MCelulas,fila,col);
     }
     eliminarMat(MCelulas,fila);
     SDL_DestroyRenderer(renderer);
