@@ -14,16 +14,27 @@ void drawFilledCircle(SDL_Renderer* renderer, int cx, int cy, int radius) {
 
 int main(int argc, char *argv[]) {
     bool done=1;
-    int8_t** MCelulas = crearMat(WIDTH,HEIGHT);
+    int k = 0, skip = 0, delay = 100,fila,col;
+
+    if(argc==1){
+        fila=WIDTH;
+        col=HEIGHT;
+    }else
+        if(argc==5){
+            sscanf(argv[1], "%d", &fila);
+            sscanf(argv[2], "%d", &col);
+            sscanf(argv[3], "%d", &delay);
+            sscanf(argv[4], "%d", &skip);
+        }else
+            return ERROR_ARGUMENTOS;
+
+    if(fila<1 || col<1)
+        return ARGUMENTOS_ERRONEOS;
+
+    int8_t** MCelulas = crearMat(fila,col);
     if(!MCelulas)
         return SIN_MEMO;
-    cargarCeros(MCelulas,WIDTH,HEIGHT);
-    int k = 0, skip = 0, delay = 100;
-
-    if(argc > 1)
-        sscanf(argv[1], "%d", &delay);
-    if(argc > 2)
-        sscanf(argv[2], "%d", &skip);
+    cargarCeros(MCelulas,fila,col);
 
     SDL_Window* window      = NULL;
     SDL_Renderer* renderer  = NULL;
@@ -44,8 +55,8 @@ int main(int argc, char *argv[]) {
     window = SDL_CreateWindow("Juego de la vida",
                                                 SDL_WINDOWPOS_UNDEFINED,
                                                 SDL_WINDOWPOS_UNDEFINED,
-                                                WIDTH*10,
-                                                HEIGHT*10,
+                                                fila*10,
+                                                col*10,
                                                 SDL_WINDOW_SHOWN);
     if (!window){
         SDL_Log("Error en la creacion de la ventana: %s\n", SDL_GetError());
@@ -70,8 +81,8 @@ int main(int argc, char *argv[]) {
         SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
         SDL_RenderClear(renderer);
 
-        for(i = 0; i<WIDTH; i++)
-            for(j = 0; j<HEIGHT; j++)
+        for(i = 0; i<fila; i++)
+            for(j = 0; j<col; j++)
                 if(MCelulas[i][j]==1) {
 
                     fillRect.x = (i*10);
@@ -96,7 +107,7 @@ int main(int argc, char *argv[]) {
         calculaSiguiente(MCelulas);
         aplicaSiguiente(MCelulas);
     }
-    eliminarMat(MCelulas,WIDTH);
+    eliminarMat(MCelulas,fila);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();

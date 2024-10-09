@@ -16,6 +16,8 @@
 #define HEIGHT 90
 
 #define SIN_MEMO -2
+#define ERROR_ARGUMENTOS -1
+#define ARGUMENTOS_ERRONEOS -9
 
 #define MURIENDO 2
 #define NACIENDO 3
