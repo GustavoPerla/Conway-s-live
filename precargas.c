@@ -1,5 +1,18 @@
 #include "precargas.h"
 
+int cargarDeArch(int8_t** mat,char* nomArch,const int x,const int y){
+    FILE* arch=fopen(nomArch,"rt");
+    if(arch==NULL)
+        return -3;
+
+    int f,c;
+    while(fscanf(arch,"%d;%d",&f,&c)==2){
+        mat[x+f][y+c]=VIVO;
+    }
+    fclose(arch);
+    return 0;
+}
+
 void cargarOscilador(int8_t** matriz, int i, int j) {
 
     matriz[i-1][j-3] = 1;

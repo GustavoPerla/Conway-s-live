@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
         fila=WIDTH;
         col=HEIGHT;
     }else
-        if(argc==5){
+        if(argc==6){
             sscanf(argv[1], "%d", &fila);
             sscanf(argv[2], "%d", &col);
             sscanf(argv[3], "%d", &delay);
@@ -41,13 +41,14 @@ int main(int argc, char *argv[]) {
     SDL_Event e;
     SDL_Rect fillRect;
 
-    cargarGenShip(MCelulas, 0, 0);
-    cargarOscilador2(MCelulas, 40, 20);
-    cargarOscilador2(MCelulas, 40, 35);
-    cargarOscilador2(MCelulas, 40, 50);
-    cargarOscilador2(MCelulas, 40, 65);
-    cargarOscilador2(MCelulas, 80, 80);
-    cargarOscilador2(MCelulas, 100, 100);
+    cargarDeArch(MCelulas,argv[5],50,50);
+//    cargarGenShip(MCelulas, 0, 0);
+//    cargarOscilador2(MCelulas, 40, 20);
+//    cargarOscilador2(MCelulas, 40, 35);
+//    cargarOscilador2(MCelulas, 40, 50);
+//    cargarOscilador2(MCelulas, 40, 65);
+//    cargarOscilador2(MCelulas, 80, 80);
+//    cargarOscilador2(MCelulas, 100, 100);
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         printf("SDL No se ha podido inicializar! SDL_Error: %s\n", SDL_GetError());
