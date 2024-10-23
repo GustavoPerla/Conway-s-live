@@ -41,7 +41,17 @@ int main(int argc, char *argv[]) {
     SDL_Event e;
     SDL_Rect fillRect;
 
-    cargarDeArch(MCelulas,argv[5],50,50);
+    if(argc==6){
+        cargarDeArch(MCelulas,argv[5],50,50);
+//        cargarDeArch(MCelulas,argv[5],75,50);
+//        cargarDeArch(MCelulas,argv[5],50,75);
+//        cargarDeArch(MCelulas,argv[5],75,75);
+//        cargarDeArch(MCelulas,argv[5],75,100);
+//        cargarDeArch(MCelulas,argv[5],100,100);
+//        cargarDeArch(MCelulas,argv[5],50,100);
+//        cargarDeArch(MCelulas,argv[5],100,50);
+//        cargarDeArch(MCelulas,argv[5],100,75);
+    }
 //    cargarGenShip(MCelulas, 0, 0);
 //    cargarOscilador2(MCelulas, 40, 20);
 //    cargarOscilador2(MCelulas, 40, 35);

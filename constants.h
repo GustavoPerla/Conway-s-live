@@ -23,6 +23,8 @@
 #define SIN_MEMO -2
 #define ERROR_ARGUMENTOS -1
 #define ARGUMENTOS_ERRONEOS -9
+#define ERROR_ARCH -3
+#define TODO_OK 0
 
 #define MURIENDO 2
 #define NACIENDO 3

@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="main.c" open="1" top="0" tabpos="5">
-		<Cursor position="870" topLine="70" />
-		<BrowseMarks positions="1444,2734" />
-	</File>
-	<File name="funciones.c" open="1" top="1" tabpos="4">
-		<Cursor position="224" topLine="0" />
-		<BrowseMarks positions="" />
-	</File>
-	<File name="constants.h" open="1" top="0" tabpos="1">
-		<Cursor position="368" topLine="0" />
-		<BrowseMarks positions="" />
-	</File>
 	<File name="precargas.c" open="1" top="0" tabpos="2">
 		<Cursor position="418" topLine="0" />
 		<BrowseMarks positions="" />
 	</File>
+	<File name="constants.h" open="1" top="0" tabpos="1">
+		<Cursor position="368" topLine="0" />
+	</File>
 	<File name="funciones.h" open="1" top="0" tabpos="3">
 		<Cursor position="209" topLine="0" />
+	</File>
+	<File name="main.c" open="1" top="1" tabpos="5">
+		<Cursor position="870" topLine="0" />
+		<BrowseMarks positions="1411,2722" />
+	</File>
+	<File name="funciones.c" open="1" top="0" tabpos="4">
+		<Cursor position="224" topLine="0" />
 		<BrowseMarks positions="" />
+	</File>
+	<File name="precargas.h" open="0" top="0" tabpos="2">
+		<Cursor position="242" topLine="0" />
 	</File>
 	<File name="matriz.c" open="1" top="0" tabpos="6">
 		<Cursor position="701" topLine="0" />
 		<BrowseMarks positions="716" />
-	</File>
-	<File name="precargas.h" open="0" top="0" tabpos="2">
-		<Cursor position="242" topLine="0" />
-		<BrowseMarks positions="" />
 	</File>
 </BrowseTracker_layout_file>
