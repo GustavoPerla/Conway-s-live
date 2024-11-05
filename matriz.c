@@ -4,6 +4,7 @@
 #define forn(i,n) forsn(i,0,n)
 
 #define CEROS 0
+
 void eliminarMat(int8_t** mat,size_t fil){
     int8_t** ult= mat+fil-1;
     for(int8_t** i=mat; i<=ult;i++)

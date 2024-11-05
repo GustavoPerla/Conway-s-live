@@ -12,8 +12,8 @@
 
 #include <SDL.h>
 
-#define TAM_PANTALLA_H 1910
-#define TAM_PANTALLA_V 1015
+#define TAM_PANTALLA_H 800
+#define TAM_PANTALLA_V 700
 
 #define WIDTH 160
 #define HEIGHT 90

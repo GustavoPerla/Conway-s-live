@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     bool done=1;
     int k = 0, skip = 0, delay = 100,fila,col;
 
-    if(argc==1){
+    if(!(argc-1)){
         fila=WIDTH;
         col=HEIGHT;
     }else
@@ -41,16 +41,16 @@ int main(int argc, char *argv[]) {
     int8_t** MCelulas = crearMat(fila,col);
     if(!MCelulas)
         return SIN_MEMO;
-    cargarCeros(MCelulas,fila,col);
+    cargarCeros(MCelulas,fila,col);//Lleno la matriz de ceros
 
     if(argc-1>2){
-        cargarDeArch(MCelulas,argv[3],50,50);
+        cargarDeArch(MCelulas,argv[3],50,50);//Llena la matriz con el patron que tenga tal archivo que se pase por argumento
         if(argc-1>3){
             sscanf(argv[4], "%d", &delay);
             sscanf(argv[5], "%d", &skip);
         }
     }else
-        CargaManual;
+        CargaManual;//Llena la matriz con patrones predefinidos
 
     SDL_Window* window      = NULL;
     SDL_Renderer* renderer  = NULL;
