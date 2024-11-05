@@ -5,6 +5,15 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#define CargaManual {cargarGenShip(MCelulas, 0, 0);\
+                    cargarOscilador2(MCelulas, 40, 20);\
+                    cargarOscilador2(MCelulas, 40, 35);\
+                    cargarOscilador2(MCelulas, 40, 50);\
+                    cargarOscilador2(MCelulas, 40, 65);\
+                    cargarOscilador2(MCelulas, 80, 80);\
+                    cargarOscilador2(MCelulas, 100, 100);\
+                    }
+
 void drawFilledCircle(SDL_Renderer* renderer, int cx, int cy, int radius) {
     for (int y = -radius; y <= radius; y++)
         for (int x = -radius; x <= radius; x++)
@@ -20,11 +29,9 @@ int main(int argc, char *argv[]) {
         fila=WIDTH;
         col=HEIGHT;
     }else
-        if(argc==6){
+        if(argc-1>=2){
             sscanf(argv[1], "%d", &fila);
             sscanf(argv[2], "%d", &col);
-            sscanf(argv[3], "%d", &delay);
-            sscanf(argv[4], "%d", &skip);
         }else
             return ERROR_ARGUMENTOS;
 
@@ -36,29 +43,23 @@ int main(int argc, char *argv[]) {
         return SIN_MEMO;
     cargarCeros(MCelulas,fila,col);
 
+    if(argc-1>2){
+        cargarDeArch(MCelulas,argv[3],50,50);
+        if(argc-1>3){
+            sscanf(argv[4], "%d", &delay);
+            sscanf(argv[5], "%d", &skip);
+        }
+    }else
+        CargaManual;
+
     SDL_Window* window      = NULL;
     SDL_Renderer* renderer  = NULL;
     SDL_Event e;
     SDL_Rect fillRect;
 
     if(argc==6){
-        cargarDeArch(MCelulas,argv[5],50,50);
-//        cargarDeArch(MCelulas,argv[5],75,50);
-//        cargarDeArch(MCelulas,argv[5],50,75);
-//        cargarDeArch(MCelulas,argv[5],75,75);
-//        cargarDeArch(MCelulas,argv[5],75,100);
-//        cargarDeArch(MCelulas,argv[5],100,100);
-//        cargarDeArch(MCelulas,argv[5],50,100);
-//        cargarDeArch(MCelulas,argv[5],100,50);
-//        cargarDeArch(MCelulas,argv[5],100,75);
+
     }
-//    cargarGenShip(MCelulas, 0, 0);
-//    cargarOscilador2(MCelulas, 40, 20);
-//    cargarOscilador2(MCelulas, 40, 35);
-//    cargarOscilador2(MCelulas, 40, 50);
-//    cargarOscilador2(MCelulas, 40, 65);
-//    cargarOscilador2(MCelulas, 80, 80);
-//    cargarOscilador2(MCelulas, 100, 100);
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         printf("SDL No se ha podido inicializar! SDL_Error: %s\n", SDL_GetError());
